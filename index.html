@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeserve Enterprises | Manpower • Maintenance • Materials</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0e345e;
+            --orange: #f28b24;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+            --text-gray: #555555;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+        body { line-height: 1.6; color: var(--text-gray); scroll-behavior: smooth; }
+
+        nav {
+            background: var(--white);
+            padding: 0.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            height: 110px;
+        }
+
+        .logo-container img {
+            height: 80px;
+            width: auto;
+            display: block;
+        }
+
+        nav ul { display: flex; list-style: none; align-items: center; }
+        nav ul li { margin-left: 2.5rem; }
+        nav ul li a { text-decoration: none; color: var(--navy); font-weight: 600; text-transform: uppercase; transition: 0.3s; }
+        nav ul li a:hover { color: var(--orange); }
+
+        .hero {
+            background: linear-gradient(rgba(14, 52, 94, 0.75), rgba(14, 52, 94, 0.75)), 
+                        url('hero-bg.jpg') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; text-transform: uppercase; }
+        
+        .btn { background: var(--orange); color: white; padding: 15px 35px; text-decoration: none; border-radius: 4px; font-weight: bold; text-transform: uppercase; transition: 0.3s; display: inline-block; border: none; cursor: pointer; }
+        .btn:hover { background: #e07b1e; transform: translateY(-2px); }
+
+        .services { padding: 4rem 5%; text-align: center; background: var(--light-gray); }
+        .section-title { color: var(--navy); margin-bottom: 3rem; font-size: 2.5rem; position: relative; padding-bottom: 15px; }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: var(--orange); }
+
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .service-card { background: var(--white); padding: 2rem; border-radius: 8px; border: 1px solid #eee; }
+        .service-card i { font-size: 3rem; color: var(--orange); margin-bottom: 1rem; }
+
+        /* RESIZED CONTACT SECTION */
+        .fill-section { 
+            padding: 2.5rem 5%; /* Reduced vertical padding */
+            background: var(--white); 
+        }
+
+        #contact .section-title {
+            font-size: 1.8rem; /* Smaller title */
+            margin-bottom: 1.5rem; /* Less space below title */
+        }
+
+        .fill-container { 
+            max-width: 450px; /* Narrowed width from 600px to 450px */
+            margin: 0 auto; 
+            padding: 1.5rem; /* Reduced inner padding */
+            background: var(--light-gray);
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .form-group { margin-bottom: 1rem; } /* Tighter spacing */
+        .form-group label { display: block; margin-bottom: 0.3rem; color: var(--navy); font-weight: 600; font-size: 0.9rem; }
+        .form-group input, .form-group textarea { 
+            width: 100%; 
+            padding: 10px; 
+            border: 1px solid #ddd; 
+            border-radius: 5px; 
+            font-size: 0.95rem;
+        }
+
+        .submit-btn { width: 100%; background: var(--navy); color: white; padding: 12px; border: none; border-radius: 5px; font-weight: bold; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
+        .submit-btn:hover { background: var(--orange); }
+
+        footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-logo img { 
+            height: 70px; 
+            margin-bottom: 1.5rem; 
+            background: white; 
+            padding: 5px; 
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .copyright { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+
+        @media (max-width: 768px) {
+            nav { height: auto; padding: 1rem; flex-direction: column; }
+            nav ul { margin-top: 1rem; }
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-container">
+            <img src="logo.png" alt="Primeserve Logo">
+        </div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <h1>PRIMESERVE ENTERPRISES</h1>
+        <p>Reliable solutions for your industrial and business needs.</p>
+        <a href="#contact" class="btn">Get Started</a>
+    </section>
+
+    <section class="services" id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <i class="fas fa-user-tie"></i>
+                <h3>Manpower</h3>
+                <p>Skilled workforce for your operations.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-screwdriver-wrench"></i>
+                <h3>Maintenance</h3>
+                <p>Expert care for your facilities.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-truck-ramp-box"></i>
+                <h3>Materials</h3>
+                <p>Quality industrial supplies.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="fill-section" id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="fill-container">
+            <form action="https://formspree.io/f/xnjolvro" method="POST">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" name="_replyto" required>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea name="message" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Information</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">
+            <img src="logo.png" alt="Primeserve Logo">
+            <p>Your trusted partner in Manpower, Maintenance, and Materials since 2026.</p>
+        </div>
+        <p>Email: info@primeserve.com</p>
+        <div class="copyright">
+            &copy; 2026 Primeserve Enterprises.
+        </div>
+    </footer>
+
+</body>
+</html>
