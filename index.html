@@ -67,37 +67,82 @@
         .service-card { background: var(--white); padding: 2rem; border-radius: 8px; border: 1px solid #eee; }
         .service-card i { font-size: 3rem; color: var(--orange); margin-bottom: 1rem; }
 
-        /* RESIZED CONTACT SECTION */
+        /* ==========================================================================
+           UPDATED CONTACT SECTION STYLES (Creating the Split Layout)
+           ========================================================================== */
         .fill-section { 
-            padding: 2.5rem 5%; /* Reduced vertical padding */
-            background: var(--white); 
+            padding: 5rem 5%; 
+            background: var(--light-gray); /* Light grey background for the whole section */
         }
 
-        #contact .section-title {
-            font-size: 1.8rem; /* Smaller title */
-            margin-bottom: 1.5rem; /* Less space below title */
-        }
-
-        .fill-container { 
-            max-width: 450px; /* Narrowed width from 600px to 450px */
+        /* Container that forces the side-by-side layout */
+        .contact-split {
+            display: flex; 
+            max-width: 1000px; /* Limits the overall width */
             margin: 0 auto; 
-            padding: 1.5rem; /* Reduced inner padding */
-            background: var(--light-gray);
+            background: var(--white); /* White background for the card */
             border-radius: 12px;
+            overflow: hidden; /* Ensures rounded corners are clean */
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            align-items: center; /* Vertically center content */
         }
 
-        .form-group { margin-bottom: 1rem; } /* Tighter spacing */
+        /* Left side styles (The text) */
+        .contact-text {
+            flex: 1; /* Takes 50% width */
+            padding: 3rem;
+            border-right: 1px solid #eee; /* Light divider */
+        }
+
+        .contact-text h2 {
+            color: var(--navy);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+
+        .contact-text .contact-subtext {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            margin-bottom: 0;
+            text-align: left; /* Alignment reset */
+        }
+
+        /* Right side styles (The form) */
+        .fill-container { 
+            flex: 1; /* Takes 50% width */
+            padding: 3rem;
+            /* Container background is already set by .contact-split and .contact-text styles */
+        }
+
+        /* ==========================================================================
+           FORM INPUTS AND BUTTON STYLES (Slight adjustments for split layout)
+           ========================================================================== */
+        .form-group { margin-bottom: 1rem; }
         .form-group label { display: block; margin-bottom: 0.3rem; color: var(--navy); font-weight: 600; font-size: 0.9rem; }
+        
         .form-group input, .form-group textarea { 
             width: 100%; 
-            padding: 10px; 
+            padding: 12px; /* Slightly increased padding */
             border: 1px solid #ddd; 
             border-radius: 5px; 
             font-size: 0.95rem;
+            background: var(--light-gray); /* Match form background */
         }
 
-        .submit-btn { width: 100%; background: var(--navy); color: white; padding: 12px; border: none; border-radius: 5px; font-weight: bold; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
+        .submit-btn { 
+            width: 100%; 
+            background: var(--navy); 
+            color: white; 
+            padding: 14px; /* Slightly increased padding */
+            border: none; 
+            border-radius: 5px; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            cursor: pointer; 
+            transition: 0.3s; 
+            margin-top: 1rem;
+        }
         .submit-btn:hover { background: var(--orange); }
 
         footer {
@@ -118,10 +163,17 @@
 
         .copyright { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 0.85rem; }
 
+        /* Responsive adjustments for mobile screens */
         @media (max-width: 768px) {
             nav { height: auto; padding: 1rem; flex-direction: column; }
             nav ul { margin-top: 1rem; }
             .hero h1 { font-size: 2rem; }
+
+            /* Switch back to vertical layout on small screens */
+            .contact-split { flex-direction: column; max-width: 450px; }
+            .contact-text { border-right: none; border-bottom: 1px solid #eee; padding: 2rem; text-align: center; }
+            .contact-text .contact-subtext { text-align: center; }
+            .fill-container { padding: 2rem; }
         }
     </style>
 </head>
@@ -166,23 +218,31 @@
     </section>
 
     <section class="fill-section" id="contact">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="fill-container">
-            <form action="https://formspree.io/f/xnjolvro" method="POST">
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" name="_replyto" required>
-                </div>
-                <div class="form-group">
-                    <label>Message</label>
-                    <textarea name="message" rows="3" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send Information</button>
-            </form>
+        
+        <div class="contact-split">
+            
+            <div class="contact-text">
+                <h2>Work<br>With Us.</h2>
+                <p class="contact-subtext">Fill the form to secure the resources your project requires.</p>
+            </div>
+
+            <div class="fill-container">
+                <form action="https://formspree.io/f/xnjolvro" method="POST">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" name="_replyto" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Information</button>
+                </form>
+            </div>
         </div>
     </section>
 
